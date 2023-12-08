@@ -31,11 +31,11 @@ jobs:
           java-version: 11
           distribution: 'zulu'
       - name: Set up Maven
-        uses: tradeshift/actions-setup-maven@v4.4
+        uses: theros-org/actions-setup-maven@v4.4
         with:
           maven-version: 3.6.3
       - name: Configure maven
-        uses: tradeshift/actions-setup-java-mtls@v1
+        uses: theros-org/actions-setup-java-mtls@v1
         with:
           java-version: "${{ steps.setupJava.outputs.version }}"
           maven-settings: ${{ secrets.MAVEN_SETTINGS_GH_PG }}
