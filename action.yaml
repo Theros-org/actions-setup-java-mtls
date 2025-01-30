@@ -35,6 +35,7 @@ runs:
         echo "export MAVEN_OPTS=\"-Djavax.net.ssl.keyStore=${HOME}/certs/certificate.p12 -Djavax.net.ssl.keyStoreType=pkcs12 -Djavax.net.ssl.keyStorePassword=${{ inputs.maven-p12-password }}\"" \
         >> ~/.mavenrc
         echo "Configuring maven ..."
+        mkdir -p ~/.m2
         echo "${{ inputs.maven-settings }}" | base64 -d > ${HOME}/.m2/settings.xml
         echo "${{ inputs.maven-security }}" | base64 -d > ${HOME}/.m2/settings-security.xml
         if [[ "${{ inputs.java-version }}" =~ ^8\..* ]]; then
